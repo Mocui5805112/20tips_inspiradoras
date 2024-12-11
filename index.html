@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta de Amor</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('https://s0.smartresize.com/wallpaper/183/225/HD-wallpaper-with-love-basket-teddy-love-bear-roses.jpg') no-repeat center center;
+            background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+            background-position: center; /* Centra la imagen */
+            height: 100vh; /* Toma el 100% de la altura de la ventana */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente */
+            width: 90%; /* Ajuste a un 90% del ancho de la pantalla */
+            max-width: 350px; /* Limita el tamaño máximo */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #d76a28;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .slider {
+            position: relative;
+            width: 100%;
+            height: 150px;
+            overflow: hidden;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffcccb; /* Color de fondo suave */
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #d76a28;
+            border-radius: 10px;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            z-index: 1000;
+            border-radius: 50%;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        /* Estilo para el botón Te Amo */
+        .btn-love {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background-color: #e91e63;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border: 2px solid #e91e63;
+            text-transform: uppercase;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn-love:hover {
+            background-color: #d81b60;
+            transform: scale(1.1);
+        }
+
+        .btn-love:active {
+            transform: scale(1);
+        }
+
+        /* Estilo para el texto 'clic' debajo del botón */
+        .click-text {
+            font-size: 0.8rem;
+            color: red;
+            margin-top: 10px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Tarjeta de Amor</h1>
+
+        <!-- Slider de frases románticas -->
+        <div class="slider">
+            <div class="slides">
+                <div class="slide">"Nunca había creído en el amor a primera vista, pero eso fue antes de verte a ti"</div>
+                <div class="slide">"¡Si fuera un gato, querría pasar mis siete vidas contigo!."</div>
+                <div class="slide">"Espero que sepas primeros auxilios, porque me has dejado sin respiración"</div>
+                <div class="slide">"¿Te importaría darme un pellizco? Eres tan guapa que debo estar soñando."</div>
+            </div>
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+
+        <!-- Botón de WhatsApp -->
+        <a href="https://wa.link/ntrrhg" class="btn-love" target="_blank">
+            <span>Ver más</span>
+        </a>
+
+        <!-- Texto 'clic' en rojo debajo del botón -->
+        <span class="click-text">clic</span>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+
+        function moveSlide(n) {
+            let slides = document.querySelectorAll('.slide');
+            slideIndex += n;
+            if (slideIndex >= slides.length) slideIndex = 0;
+            if (slideIndex < 0) slideIndex = slides.length - 1;
+
+            document.querySelector('.slides').style.transform = 'translateX(' + (-slideIndex * 100) + '%)';
+        }
+
+        // Iniciar el slider automáticamente
+        setInterval(function() {
+            moveSlide(1);
+        }, 3000); // Cambia cada 3 segundos
+    </script>
+
+</body>
+</html>
+
+
+
+
